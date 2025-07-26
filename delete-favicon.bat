@@ -1,0 +1,1 @@
+del "src\app\favicon.ico"

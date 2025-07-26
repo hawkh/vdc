@@ -1,0 +1,3 @@
+@echo off
+echo Testing build after fixes...
+npm run build
