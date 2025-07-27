@@ -12,14 +12,26 @@ export default withAuth(
     const { pathname } = request.nextUrl;
     const token = request.nextauth.token;
 
-    // Redirect to sign-in if not authenticated and trying to access protected routes
-    if (!token && !publicRoutes.some(route => pathname.startsWith(route))) {
-      const url = new URL('/auth/signin', request.url);
+    // Allow access to public routes
+    if (publicRoutes.some(route => pathname.startsWith(route))) {
+      return NextResponse.next();
+    }
+
+    // Redirect to login if not authenticated and trying to access protected routes
+    if (!token) {
+      // Redirect admin routes to admin login
+      if (adminRoutes.some(route => pathname.startsWith(route))) {
+        const url = new URL('/admin/login', request.url);
+        url.searchParams.set('callbackUrl', encodeURI(request.url));
+        return NextResponse.redirect(url);
+      }
+      // Redirect other protected routes to general auth signin
+      const url = new URL('/admin/login', request.url);
       url.searchParams.set('callbackUrl', encodeURI(request.url));
       return NextResponse.redirect(url);
     }
 
-    // Handle role-based access control
+    // Handle role-based access control for authenticated users
     if (token) {
       // Redirect to unauthorized if trying to access admin routes without admin role
       if (adminRoutes.some(route => pathname.startsWith(route)) && token.role !== 'admin') {
@@ -43,11 +55,19 @@ export default withAuth(
   },
   {
     callbacks: {
-      authorized: ({ token }) => !!token,
+      authorized: ({ token, req }) => {
+        // Always allow access to public routes
+        const { pathname } = req.nextUrl;
+        if (publicRoutes.some(route => pathname.startsWith(route))) {
+          return true;
+        }
+        // For protected routes, require authentication
+        return !!token;
+      },
     },
     pages: {
-      signIn: '/auth/signin',
-      error: '/auth/error',
+      signIn: '/admin/login',
+      error: '/admin/login',
     },
   }
 );
