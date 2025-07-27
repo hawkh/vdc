@@ -21,7 +21,7 @@ export function About() {
                   alt="Dr. Bommakanti Rakesh Gupta"
                   className="aspect-square overflow-hidden rounded-lg object-cover"
                   height="400"
-                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                  src="/rakesh.jpg"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   width="400"
                 />
@@ -41,7 +41,7 @@ export function About() {
                   alt="Dr. Navya"
                   className="aspect-square overflow-hidden rounded-lg object-cover"
                   height="400"
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                  src="/navya.jpg"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   width="400"
                 />
