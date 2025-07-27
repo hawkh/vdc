@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  env: {
+    // Provide a dummy value during build if not set
+    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY || 'sk_build_dummy_key_for_build_process',
+  },
   images: {
     remotePatterns: [
       {

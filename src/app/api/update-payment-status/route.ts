@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import Appointment from '@/models/appointment';
-import stripe from '@/lib/stripe';
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,7 +13,17 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Verify payment intent with Stripe
+    // Check if Stripe is configured
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json(
+        { error: 'Payment processing is not configured' },
+        { status: 500 }
+      );
+    }
+
+    // Dynamic import and initialize Stripe only when needed
+    const { getStripe } = await import('@/lib/stripe');
+    const stripe = await getStripe();
     const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
 
     if (paymentIntent.status !== 'succeeded') {
