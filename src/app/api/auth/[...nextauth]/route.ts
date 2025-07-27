@@ -21,6 +21,8 @@ const ADMIN_EMAILS = [
   'admin@vasavi.com'
 ];
 
+// Temporarily disabled for deployment
+/*
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
@@ -148,3 +150,13 @@ export const authOptions: NextAuthOptions = {
 
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
+*/
+
+// Temporary handler for deployment
+export async function GET() {
+  return new Response('Auth temporarily disabled', { status: 200 });
+}
+
+export async function POST() {
+  return new Response('Auth temporarily disabled', { status: 200 });
+}
