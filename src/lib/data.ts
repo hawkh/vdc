@@ -60,8 +60,8 @@ export const generateTimeSlots = (date: Date | undefined): string[] => {
   const slots = [];
   const startTime = 10.5; // 10:30 AM
   const endTime = 19; // 7:00 PM
-  const lunchStart = 13; // 1:00 PM
-  const lunchEnd = 14; // 2:00 PM
+  const lunchStart = 16; // 4:00 PM
+  const lunchEnd = 17.5; // 5:30 PM
   const slotDuration = 0.5; // 30 minutes
 
   for (let time = startTime; time < endTime; time += slotDuration) {
