@@ -30,7 +30,7 @@ export function Hero() {
             alt="Hero"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
             height="550"
-            src="/vdc.jpg"
+            src="/vdc1.jpg"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             width="550"
           />
