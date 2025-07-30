@@ -4,18 +4,18 @@ import { Card, CardContent } from "@/components/ui/card";
 const testimonials = [
   {
     id: 1,
-    beforeImage: "/before1.png",
-    afterImage: "/after1.png"
+    beforeImage: "/before1.jpg",
+    afterImage: "/after1.jpg"
   },
   {
     id: 2,
-    beforeImage: "/before2.png",
-    afterImage: "/after2.png"
+    beforeImage: "/before2.jpg",
+    afterImage: "/after2.jpg"
   },
   {
     id: 3,
-    beforeImage: "/before3.png",
-    afterImage: "/after3.png"
+    beforeImage: "/before3.jpg",
+    afterImage: "/after3.jpg"
   }
 ];
 
