@@ -214,7 +214,7 @@ Please complete payment using UPI and share the screenshot here.
 Thank you!
     `.trim();
 
-    const whatsappUrl = `https://wa.me/919676118880?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/9381091722?text=${encodeURIComponent(message)}`;
 
     window.open(whatsappUrl, '_blank');
 
