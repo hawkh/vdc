@@ -15,7 +15,7 @@ export function Header() {
         <div className="flex flex-1 items-center justify-end space-x-2">
           <Button variant="ghost" className="hidden sm:inline-flex items-center gap-2">
             <Phone className="h-4 w-4" />
-            <span>9676118880</span>
+            <span>9381091722</span>
           </Button>
           <a href="#booking">
             <Button>Book Appointment</Button>
